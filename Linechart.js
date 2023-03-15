@@ -69,8 +69,3 @@ import { parseMetadata } from '../utils/data-binding/parse'
 
   customElements.define('com-sap-sample-echarts-ring_kpi', SampleRingKpi)
 })()
-
-
-
-
-option && myChart.setOption(option);
