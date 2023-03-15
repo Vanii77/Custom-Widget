@@ -2,16 +2,16 @@
   "eula": "",
   "vendor": "SAP",
   "license": "Apache Echart",
-  "id": "com.sap.sac.sample.echarts.grogress_gauge",
+  "id": "com.sap.sac.sample.echarts.line_chart",
   "version": "1.0.0",
-  "name": "ECharts Grogress Gauge",
-  "newInstancePrefix": "EChartGrogressGauge",
-  "description": "A Sample Custom Widget EChart Grogress Gauge Chart",
+  "name": "ECharts Line Chart",
+  "newInstancePrefix": "EChartLineChart",
+  "description": "A Sample Custom Widget EChart Line Chart",
   "webcomponents": [
     {
       "kind": "main",
       "tag": "com-sap-sample-echarts-grogress_gauge",
-      "url": "https://sap-samples.github.io/analytics-cloud-custom-widget/Custom-Widget-Samples/dist/main.bundle.js",
+      "url": "https://github.com/Vanii77/Custom-Widget/blob/main/Linechart.js",
       "integrity": "",
       "ignoreIntegrity": true
     }
