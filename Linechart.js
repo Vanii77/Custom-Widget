@@ -1,71 +1,81 @@
-import * as echarts from 'echarts'
-import html from './kpi_ring.html'
-
-import { parseMetadata } from '../utils/data-binding/parse'
+var getScriptPromisify = (src) => {
+  return new Promise((resolve) => {
+    $.getScript(src, resolve);
+  });
+};
 
 (function () {
-  const template = document.createElement('template')
-  template.innerHTML = html
-  class SampleRingKpi extends HTMLElement {
-    constructor () {
-      super()
+  const prepared = document.createElement("template");
+  prepared.innerHTML = `
+        <style>
+        </style>
+        <div id="root" style="width: 100%; height: 100%;">
+        </div>
+      `;
+  class NestedPieSamplePrepped extends HTMLElement {
+    constructor() {
+      super();
 
-      this._shadowRoot = this.attachShadow({ mode: 'open' })
-      this._shadowRoot.appendChild(template.content.cloneNode(true))
+      this._shadowRoot = this.attachShadow({ mode: "open" });
+      this._shadowRoot.appendChild(prepared.content.cloneNode(true));
 
-      this._root = this._shadowRoot.getElementById('root')
+      this._root = this._shadowRoot.getElementById("root");
 
-      this._props = {}
+      this._props = {};
 
-      this._echart = undefined
-      this.render()
+      this.render();
     }
 
-    onCustomWidgetResize (width, height) {
-      this.render()
+    onCustomWidgetResize(width, height) {
+      this.render();
     }
 
-    set myDataSource (dataBinding) {
-      this._myDataSource = dataBinding
-      this.render()
+    set myDataSource(dataBinding) {
+      this._myDataSource = dataBinding;
+      this.render();
     }
 
-    async render () {
-      this.dispose()
+    async render() {
+      await getScriptPromisify(
+        "https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js"
+        
+      );
 
-      if (!this._myDataSource || this._myDataSource.state !== 'success') {
-        return
+      if (!this._myDataSource || this._myDataSource.state !== "success") {
+        return;
       }
 
-      const { data, metadata } = this._myDataSource
-      const { dimensions, measures } = parseMetadata(metadata)
+      const dimension = this._myDataSource.metadata.feeds.dimensions.values[0];
+      const measure = this._myDataSource.metadata.feeds.measures.values[0];
+      const data = this._myDataSource.data.map((data) => {
+        return {
+          name: data[dimension].label,
+          value: data[measure].raw,
+        };
+      });
 
-      this._echart = echarts.init(this._root, 'wight')
-
+      const myChart = echarts.init(this._root, "wight");
       const option = {
-      xAxis: {
-        type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-        },
-      yAxis: {
-        type: 'value'
-        },
-      series: [
-        {
-        data: [150, 230, 224, 218, 135, 147, 260],
-        type: 'line'
-         }
-      ]
-    };
-      this._echart.setOption(option)
+  xAxis: {
+    type: 'category',
+    data,
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      data,
+      type: 'line'
     }
-
-    dispose () {
-      if (this._echart) {
-        echarts.dispose(this._echart)
-      }
+  ]
+};
+           
+        ],
+      };
+      myChart.setOption(option);
     }
   }
 
-  customElements.define('com-sap-sample-echarts-ring_kpi', SampleRingKpi)
-})()
+  customElements.define("com-sap-sample-echarts-nested_chart", NestedPieSamplePrepped);
+})();
