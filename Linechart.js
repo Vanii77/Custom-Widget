@@ -56,26 +56,23 @@ var getScriptPromisify = (src) => {
 
       const myChart = echarts.init(this._root, "wight");
       const option = {
-  xAxis: {
-    type: 'category',
-    data,
-  },
-  yAxis: {
-    type: 'value'
-  },
-  series: [
-    {
-      data,
-      type: 'line'
-    }
-  ]
-};
-           
-        ],
-      };
-      myChart.setOption(option);
-    }
-  }
+        xAxis: {
+            type: 'category',
+            data, 
+            },
+        yAxis: {
+            type: 'value'
+            },
+        series: [
+            {
+            data, 
+            type: 'line'
+        },
+    ],
+  };
+  myChart.setOption(option);
+}
+}
 
-  customElements.define("com-sap-sample-echarts-nested_chart", NestedPieSamplePrepped);
+customElements.define("com-sap-sample-echarts-nested_chart", NestedPieSamplePrepped);
 })();
