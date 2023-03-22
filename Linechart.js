@@ -74,5 +74,5 @@ var getScriptPromisify = (src) => {
 }
 }
 
-customElements.define("com-sap-sample-echarts-nested_chart", NestedPieSamplePrepped);
+customElements.define("customlinechart", NestedPieSamplePrepped);
 })();
