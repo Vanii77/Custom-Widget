@@ -2,7 +2,7 @@
     "eula": "",
     "vendor": "SAP",
     "license": "",
-    "id": "com.sap.sac.sample.echarts.line_chart",
+    "id": "line-simple",
     "version": "0.0.1",
     "name": "ECharts Line Chart Hosted SAP Github",
     "newInstancePrefix": "EChartLineChart",
