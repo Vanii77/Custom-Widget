@@ -29,6 +29,11 @@ var getScriptPromisify = (src) => {
     onCustomWidgetResize(width, height) {
       this.render();
     }
+    
+    set myDataSource(dataBinding) {
+      this._myDataSource = dataBinding;
+      this.render();
+    }
 
     async render() {
       await getScriptPromisify(
