@@ -17,7 +17,6 @@ var getScriptPromisify = (src) => {
       super();
 
       this._shadowRoot = this.attachShadow({ mode: "open" });
-      this._shadowRoot.appendChild(prepared.content.cloneNode(true));
 
       this._root = this._shadowRoot.getElementById("root");
 
