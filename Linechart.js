@@ -49,8 +49,8 @@ var getScriptPromisify = (src) => {
       const measure = this._myDataSource.metadata.feeds.measures.values[0];
       const data = this._myDataSource.data.map((data) => {
         return {
-          name: data[dimension].label,
-          value: data[measure].raw,
+          name: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          value: [150, 230, 224, 218, 135, 147, 260],
         };
       });
 
@@ -66,8 +66,7 @@ var getScriptPromisify = (src) => {
         },
         
         xAxis: {
-            type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            type: 'category', 
             },
         yAxis: {
             type: 'value'
@@ -75,9 +74,10 @@ var getScriptPromisify = (src) => {
         series: [
             {
             name: "",
-            data: [150, 230, 224, 218, 135, 147, 260], 
-            type: 'line'
+            type: 'line',
+            data,
         },
+      
     ],
   };
   myChart.setOption(option);
