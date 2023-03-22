@@ -59,7 +59,7 @@ var getScriptPromisify = (src) => {
       const option = {
         xAxis: {
             type: 'category',
-            value: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
             },
         yAxis: {
             type: 'value'
@@ -67,7 +67,7 @@ var getScriptPromisify = (src) => {
         series: [
             {
             name: "",
-            value: [150, 230, 224, 218, 135, 147, 260], 
+            data: [150, 230, 224, 218, 135, 147, 260], 
             type: 'line'
         },
     ],
