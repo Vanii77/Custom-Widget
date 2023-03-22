@@ -57,6 +57,14 @@ var getScriptPromisify = (src) => {
 
       const myChart = echarts.init(this._root, "main");
       const option = {
+         tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b}: {c} ({d}%)",
+        },
+        legend: {
+          data,
+        },
+        
         xAxis: {
             type: 'category',
             data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
