@@ -10,7 +10,7 @@
     "webcomponents": [
       {
         "kind": "main",
-        "tag": "com-sap-sample-echarts-line_chart",
+        "tag": "line-simple",
         "url": "https://github.com/Vanii77/Custom-Widget/blob/main/Linechart.js",
         "integrity": "",
         "ignoreIntegrity": true
