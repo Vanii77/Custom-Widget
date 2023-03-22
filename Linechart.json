@@ -2,15 +2,15 @@
     "eula": "",
     "vendor": "SAP",
     "license": "",
-    "id": "com.sap.sac.sample.echarts.nested_chart",
-    "version": "2.0.0",
-    "name": "ECharts Nested Pie Chart Hosted SAP Github",
-    "newInstancePrefix": "EChartNestedPieChart",
-    "description": "A sample custom widget wrapped EChart Nested Pie Chart Hosted in SAP Github",
+    "id": "com.sap.sac.sample.echarts.line_chart",
+    "version": "0.0.1",
+    "name": "ECharts Line Chart Hosted SAP Github",
+    "newInstancePrefix": "EChartLineChart",
+    "description": "A sample custom widget Line Chart Hosted in SAP Github",
     "webcomponents": [
       {
         "kind": "main",
-        "tag": "com-sap-sample-echarts-nested_chart",
+        "tag": "com-sap-sample-echarts-line_chart",
         "url": "https://github.com/Vanii77/Custom-Widget/blob/main/Linechart.js",
         "integrity": "",
         "ignoreIntegrity": true
