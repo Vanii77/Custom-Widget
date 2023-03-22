@@ -54,7 +54,7 @@ var getScriptPromisify = (src) => {
         };
       });
 
-      const myChart = echarts.init(this._root, "wight");
+      const myChart = echarts.init(this._root, "main");
       const option = {
         xAxis: {
             type: 'category',
